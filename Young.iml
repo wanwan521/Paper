@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="junit-4.12" level="project" />
+    <orderEntry type="library" name="fastdfs-client-java-1.25" level="project" />
+    <orderEntry type="library" name="fastdfs_client-1.25" level="project" />
+  </component>
+</module>
