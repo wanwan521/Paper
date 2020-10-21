@@ -11,18 +11,17 @@
     <script type="text/javascript" src="/js/jquery-easyui-1.4.1/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
     <script src="layui/layui.js"></script>
+
     <title>管理员登录</title>
 
 </head>
-<%--<body style="background-color: #F3F3F3">--%>
-<body background="/img/dongnan1.jpg">
+<body style="background-color: #F3F3F3">
 
-
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 150px;margin-left: 730px;">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 150px;margin-left: 530px;">
         <legend>管理员登录</legend>
     </fieldset>
 
-    <form class="layui-form layui-form-pane" action=""  style="margin-left: 700px;">
+    <form class="layui-form layui-form-pane" action=""  style="margin-left: 500px;">
 
         <div class="layui-form-item">
             <div class="layui-inline">
@@ -42,7 +41,7 @@
             <div class="layui-form-mid layui-word-aux">密码包含大小写字母</div>
         </div>
 
-        <div class="layui-form-item" style="margin-left: 70px;">
+        <div class="layui-form-item" style="margin-left: 60px;">
                 <button id="login" class="layui-btn" lay-submit lay-filter="formDemo">确定</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>

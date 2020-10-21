@@ -30,13 +30,13 @@ public class HotCourseController {
     }
 
 
-    @RequestMapping("/{page}")
-    public String getPage(@PathVariable String page, HttpServletRequest request){
-        List<HotCourse> findHotCourse = hotCourseService.findAllHotCourse();
-        List<Course> recommendCourse = service.getRecommendCourse();
-
-        request.getSession().setAttribute("HotCourse",findHotCourse );
-        request.getSession().setAttribute("RecommendCourse",recommendCourse );
-        return page;
-    }
+//    @RequestMapping("/{page}")
+//    public String getPage(@PathVariable String page, HttpServletRequest request){
+//        List<HotCourse> findHotCourse = hotCourseService.findAllHotCourse();
+//        List<Course> recommendCourse = service.getRecommendCourse();
+//
+//        request.getSession().setAttribute("HotCourse",findHotCourse );
+//        request.getSession().setAttribute("RecommendCourse",recommendCourse );
+//        return page;
+//    }
 }
