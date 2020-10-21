@@ -21,17 +21,24 @@
                 <img src="img/frontpagelogo.png" width="360px">
             </div>
 
+            <div class="personalCenter layui-pull-right"><a class="personalCenter" href="adminlogin" target="_blank" style="color:#fff"><i class="layui-icon layui-icon-set-fill"></i> &nbsp;管理员登录</a></div>
+
             <c:if test="${not empty loginUser }">
                 <div class="personalCenter layui-pull-right"><a class="personalCenter" href="toUserSystem" target="_blank" style="color:#fff"><i class="layui-icon layui-icon-read"></i> &nbsp;个人中心</a></div>
             </c:if>
+
             <c:if test="${empty loginUser }">
 
-                <div class="operation layui-pull-right"><i class="layui-icon layui-icon-read"></i> &nbsp;学生登录</div>
+                <div class="operation layui-pull-right"><a class="personalCenter" style="color:#fff"><i class="layui-icon layui-icon-set-fill"></i> 学生登录&nbsp;&nbsp;&nbsp;</a></div>
             </c:if>
+
+
 
             <div class="personalCenter layui-pull-right">
                 <a class="personalCenter"><a class="personalCenter" href="school" target="_blank" style="color:#fff"><i class="layui-icon layui-icon-read"></i>&nbsp;院校</a></a></div>
-        </div>
+            </div>
+
+
 
 
     </div>
