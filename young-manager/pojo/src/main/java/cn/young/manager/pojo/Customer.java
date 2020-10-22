@@ -4,7 +4,7 @@ public class Customer {
 
     private Long loanserialno;
 
-    private Long certid;
+    private String certid;
 
     private Integer overdueday;
 
@@ -44,6 +44,24 @@ public class Customer {
                 '}';
     }
 
+    public Customer() {
+    }
+
+    public Customer(Long loanserialno, String certid, Integer overdueday, Integer sumoverdueday, double limitsum, Integer marriage, Integer sex, Integer age, Integer loanterm, double behaviorscore, String risklevel, String riskresult) {
+        this.loanserialno = loanserialno;
+        this.certid = certid;
+        this.overdueday = overdueday;
+        this.sumoverdueday = sumoverdueday;
+        this.limitsum = limitsum;
+        this.marriage = marriage;
+        this.sex = sex;
+        this.age = age;
+        this.loanterm = loanterm;
+        this.behaviorscore = behaviorscore;
+        this.risklevel = risklevel;
+        this.riskresult = riskresult;
+    }
+
     public Long getLoanserialno() {
         return loanserialno;
     }
@@ -52,11 +70,11 @@ public class Customer {
         this.loanserialno = loanserialno;
     }
 
-    public Long getCertid() {
+    public String getCertid() {
         return certid;
     }
 
-    public void setCertid(Long certid) {
+    public void setCertid(String certid) {
         this.certid = certid;
     }
 
@@ -138,23 +156,5 @@ public class Customer {
 
     public void setRiskresult(String riskresult) {
         this.riskresult = riskresult;
-    }
-
-    public Customer(Long loanserialno, Long certid, Integer overdueday, Integer sumoverdueday, double limitsum, Integer marriage, Integer sex, Integer age, Integer loanterm, double behaviorscore, String risklevel, String riskresult) {
-        this.loanserialno = loanserialno;
-        this.certid = certid;
-        this.overdueday = overdueday;
-        this.sumoverdueday = sumoverdueday;
-        this.limitsum = limitsum;
-        this.marriage = marriage;
-        this.sex = sex;
-        this.age = age;
-        this.loanterm = loanterm;
-        this.behaviorscore = behaviorscore;
-        this.risklevel = risklevel;
-        this.riskresult = riskresult;
-    }
-
-    public Customer() {
     }
 }

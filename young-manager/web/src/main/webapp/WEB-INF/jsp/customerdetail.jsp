@@ -53,85 +53,111 @@
 
 
 <div class="layui-container layui-pull-center" style="margin-bottom: 30px;width: 1300px;">
-    <%--<br>        <br>        <br>        <br>--%>
+    <br>        <br>        <br>        <br>
 
-    <%--<fieldset class="layui-elem-field ">--%>
+    <fieldset class="layui-elem-field ">
 
-        <%--<legend>--%>
-            <%--<p  style="font-size: 25px;">展示</p>--%>
-        <%--</legend>--%>
+        <legend>
+            <p  style="font-size: 25px;">客户查询</p>
+        </legend>
 
-        <%--<div class="layui-field-box " style="background: rgba(255,255,255,1);">--%>
-            <%--<br>--%>
-            <%--<div class="img" align="center">--%>
-                <%--<img src="img/dnxiaohui.png"  >--%>
-            <%--</div>--%>
+        <div class="layui-field-box " style="background: rgba(255,255,255,1);">
+            <br>
+            <div class="img" align="center">
+                <img src="img/dnxiaohui.png"  >
+            </div>
 
-            <%--<br>--%>
-            <%--<p><p style="font-size: 16px;line-height: 25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></p>--%>
-            <%--<br>--%>
-            <%--<br>--%>
-        <%--</div>--%>
+            <br>
+            <p><p style="font-size: 16px;line-height: 25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询所有客户信息</p></p>
+            <br>
+            <br>
+        </div>
 
-    <%--</fieldset>--%>
+    </fieldset>
 
     <%--<br><br><br>--%>
     <fieldset class="layui-elem-field ">
 
-        <%--<legend>--%>
-            <%--<p  style="font-size: 25px;">展示</p>--%>
-        <%--</legend>--%>
+        <legend>
+            <p  style="font-size: 25px;">客户查询</p>
+        </legend>
 
-        <div class="layui-field-box layui-bg-gray"  >
-            <div class="course wCenter">
-                <div class="detail">
-                    <ul>
-                        <c:forEach items="${customers}" var="c">
-                            <li>
-                                    <div class="status">
-                                        <p ><span>票据号：${c.loanserialno}</span></p>
-                                        <p ><span>身份证号：${c.certid}</span></p>
-                                        <p ><span>逾期天数：${c.overdueday}</span></p>
-                                        <p ><span>总逾期天数：${c.sumoverdueday}</span></p>
-                                        <p ><span>婚姻：${c.marriage}</span></p>
-                                        <p ><span>性别：${c.sex}</span></p>
-                                    </div>
-                            </li>
-                        </c:forEach>
+        <table class="layui-table">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
 
-                    </ul>
+            <tr>
+                <th>票据号</th>
+                <th>身份证号</th>
+                <th>逾期天数</th>
+                <th>总逾期天数</th>
+                <th>授信额度</th>
+                <th>婚姻</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>贷款期限</th>
+                <th>评分卡分数</th>
+                <th>风险等级</th>
+                <th>风险结果</th>
+            </tr>
+            </thead>
+            <c:forEach items="${customers}" var="c">
+                <tbody>
+                <tr>
+                    <td style="text-align: center">${c.loanserialno}</td>
+                    <td style="text-align: center">${c.certid}</td>
+                    <td style="text-align: center">${c.overdueday}</td>
+                    <td style="text-align: center">${c.sumoverdueday}</td>
+                    <td style="text-align: center">${c.limitsum}</td>
+                    <c:choose>
+                        <c:when test="${c.marriage==0}"><td style="text-align: center">未婚</td></c:when>
+                        <c:when test="${c.marriage==1}"><td style="text-align: center">已婚</td></c:when>
+                        <c:otherwise><td style="text-align: center">其他</td></c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="${c.sex==1}"><td style="text-align: center">男</td></c:when>
+                        <c:when test="${c.sex==2}"><td style="text-align: center">女</td></c:when>
+                        <c:otherwise><td style="text-align: center">其他</td></c:otherwise>
+                    </c:choose>
+                    <td style="text-align: center">${c.age}</td>
+                    <td style="text-align: center">${c.loanterm}</td>
+                    <td style="text-align: center">${c.behaviorscore}</td>
+                    <td style="text-align: center">${c.risklevel}</td>
+                    <td style="text-align: center">${c.riskresult}</td>
+                </tr>
+                </tbody>
+            </c:forEach>
+        </table>
 
-                </div>
+        <div class="page_wrap">
+            <div class="page_min">
+                <ul>
+                    <%--第一页之后都有上一页--%>
+                    <c:if test="${page>1}">
+                        <li style="margin-right: 10px;"><a href="${pageContext.request.contextPath}/customerdetail?page=${page-1}&limit=20" class="next">上一页</a></li>
+
+                    </c:if>
+
+                    <li class="" id="list1"><a  href="${pageContext.request.contextPath}/customerdetail?page=1&limit=20" id="h1">1</a></li>
+                    <li class="" id="list2"><a  href="${pageContext.request.contextPath}/customerdetail?page=2&limit=20">2</a></li>
+                    <li class="" id="list3"><a  href="${pageContext.request.contextPath}/customerdetail?page=3&limit=20">3</a></li>
+                    <li class="" id="list4"><a  href="${pageContext.request.contextPath}/customerdetail?page=4&limit=20">4</a></li>
+                    <li class="" id="list5"><a  href="${pageContext.request.contextPath}/customerdetail?page=5&limit=20">5</a></li>
+                    <li class="" id="list6"><a  href="${pageContext.request.contextPath}/customerdetail?page=6&limit=20">6</a></li>
+
+                    <%--第六页之前都有下一页--%>
+                    <c:if test="${page<6}">
+                        <li style="margin-right: 10px;"><a href="${pageContext.request.contextPath}/customerdetail?page=${page+1}&limit=20" class="next" >下一页</a></li>
+
+                    </c:if>
+                </ul>
             </div>
         </div>
-
     </fieldset>
-</div>
-
-<div class="page_wrap">
-    <div class="page_min">
-        <ul>
-            <%--第一页之后都有上一页--%>
-            <c:if test="${page>1}">
-                <li style="margin-right: 10px;"><a href="${pageContext.request.contextPath}/customerdetail?page=${page-1}&limit=20" class="next">上一页</a></li>
-
-            </c:if>
-
-            <li class="" id="list1"><a  href="${pageContext.request.contextPath}/customerdetail?page=1&limit=20" id="h1">1</a></li>
-            <li class="" id="list2"><a  href="${pageContext.request.contextPath}/customerdetail?page=2&limit=20">2</a></li>
-            <li class="" id="list3"><a  href="${pageContext.request.contextPath}/customerdetail?page=3&limit=20">3</a></li>
-            <li class="" id="list4"><a  href="${pageContext.request.contextPath}/customerdetail?page=4&limit=20">4</a></li>
-            <li class="" id="list5"><a  href="${pageContext.request.contextPath}/customerdetail?page=5&limit=20">5</a></li>
-            <li class="" id="list6"><a  href="${pageContext.request.contextPath}/customerdetail?page=6&limit=20">6</a></li>
-
-            <%--第六页之前都有下一页--%>
-            <c:if test="${page<6}">
-                <li style="margin-right: 10px;"><a href="${pageContext.request.contextPath}/customerdetail?page=${page+1}&limit=20" class="next" >下一页</a></li>
-
-            </c:if>
-        </ul>
-    </div>
-</div>
 
 </div>
 

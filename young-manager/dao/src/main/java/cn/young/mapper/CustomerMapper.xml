@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.young.mapper.CustomerMapper">
+    <resultMap id="BaseResultMap" type="cn.young.manager.pojo.Customer">
+        <id column="loanserialno" jdbcType="BIGINT" property="loanserialno" />
+        <id column="certid" jdbcType="VARCHAR" property="certid" />
+        <result column="overdueday" jdbcType="INTEGER" property="overdueday" />
+        <result column="sumoverdueday" jdbcType="INTEGER" property="sumoverdueday" />
+        <result column="limitsum" jdbcType="DOUBLE" property="limitsum" />
+        <result column="marriage" jdbcType="INTEGER" property="marriage" />
+        <result column="sex" jdbcType="INTEGER" property="sex" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="loanterm" jdbcType="INTEGER" property="loanterm" />
+        <result column="behaviorscore" jdbcType="DOUBLE" property="behaviorscore" />
+        <result column="risklevel" jdbcType="VARCHAR" property="risklevel" />
+        <result column="riskresult" jdbcType="VARCHAR" property="riskresult" />
+    </resultMap>
+
+    <select id="findCustomerByPage" parameterType="cn.young.manager.pojo.Pages" resultMap="BaseResultMap">
+		select * from medium limit #{page},#{limit}
+    </select>
+
+    <select id="findAllCustomers"  resultMap="BaseResultMap">
+		select * from medium
+    </select>
+
+</mapper>
